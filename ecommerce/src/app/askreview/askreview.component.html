@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="card">
+      <h2>Submit a Review</h2>
+  
+      <form (ngSubmit)="submitReview()">
+        <div>
+          <label>Product Code:</label>
+          <input type="text" [(ngModel)]="productCode" name="productCode" required>
+        </div>
+        <div>
+          <label>Product Name:</label>
+          <input type="text" [(ngModel)]="productName" name="productName" required>
+        </div>
+        <div>
+          <label>Brand:</label>
+          <input type="text" [(ngModel)]="brand" name="brand" required>
+        </div>
+        <div>
+          <label>Rating:</label>
+          <input type="text" [(ngModel)]="rating" name="rating" required>
+        </div>
+        <div>
+          <label>Heading:</label>
+          <input type="text" [(ngModel)]="heading" name="heading" required>
+        </div>
+        <div>
+          <label>Review:</label>
+          <textarea [(ngModel)]="review" name="review" required></textarea>
+        </div>
+        <div>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+  
+      <p *ngIf="submitted">Review submitted successfully!</p>
+      <p *ngIf="errorMessage">{{ errorMessage }}</p>
+    </div>
+  </div>
+  
+  <hr>
+  <div class="container1">
+    <div class="card">
+      <h2>Product Reviews</h2>
+      <label>Product Code:</label>
+      <input type="text" [(ngModel)]="productCode" name="productCode" required>
+      <button (click)="fetchReviews()">Fetch Reviews</button>
+      <ul>
+        <li *ngFor="let review of reviews">
+          <p>Rating: {{ review.rating }}</p>
+          <p>Heading: {{ review.heading }}</p>
+          <p>Review: {{ review.review }}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
